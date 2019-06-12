@@ -6,7 +6,7 @@
 /*   By: argonthi <argonthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 18:43:19 by argonthi          #+#    #+#             */
-/*   Updated: 2019/05/28 18:39:06 by argonthi         ###   ########.fr       */
+/*   Updated: 2019/06/12 02:35:40 by argonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int main(int argc, char const *argv[])
     int x;
     int y;
 
-    int x0 = 50;
-    int y0 = 50;
-    int x1 = 100;
-    int y1 = 300;
+    int x0 = 0; //10
+    int y0 = 0; //500
+    int x1 = 995; //950
+    int y1 = 0 ; //950
     
-    int loop = 250;
+    int loop = 300;
 
    /* if(argc != 3)
     {
@@ -35,12 +35,21 @@ int main(int argc, char const *argv[])
    /* x = atoi(argv[1]);
     y = atoi(argv[2]);*/
     mlx_ptr = mlx_init();
-    win_ptr = mlx_new_window(mlx_ptr, 500, 500, "mlx 42");
-    //mlx_pixel_put(mlx_ptr, win_ptr, x, y, BLUE);
+    win_ptr = mlx_new_window(mlx_ptr, 1000, 1000, "mlx 42");
     while(loop != 0){
     draw_line(mlx_ptr, win_ptr, x0, y0, x1, y1);
-    x1++;
-    y1--;
+  /*  int x3 = 990;
+    int y3 = 990;
+    int x4 = 1000;
+    int y4 = 50;
+
+    draw_line(mlx_ptr, win_ptr, x3, y3, x4, y4);
+    y4++;
+    x4--;*/
+
+   // x1++;
+    y1++;
+    x1--;
     loop--;
     }
     mlx_loop(mlx_ptr);
