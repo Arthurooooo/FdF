@@ -6,7 +6,7 @@
 /*   By: argonthi <argonthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 18:43:19 by argonthi          #+#    #+#             */
-/*   Updated: 2019/06/12 02:35:40 by argonthi         ###   ########.fr       */
+/*   Updated: 2019/06/12 16:43:03 by argonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int main(int argc, char const *argv[])
 
     int x0 = 0; //10
     int y0 = 0; //500
-    int x1 = 995; //950
+    int x1 = 990; //950
     int y1 = 0 ; //950
     
-    int loop = 300;
+    int loop = 900;
 
    /* if(argc != 3)
     {
@@ -48,8 +48,14 @@ int main(int argc, char const *argv[])
     x4--;*/
 
    // x1++;
+   if(y < 1000)
+   {
     y1++;
-    x1--;
+   }
+   else
+   {
+        x1--;
+   }
     loop--;
     }
     mlx_loop(mlx_ptr);
