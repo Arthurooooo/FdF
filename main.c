@@ -6,11 +6,11 @@
 /*   By: argonthi <argonthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 18:43:19 by argonthi          #+#    #+#             */
-/*   Updated: 2019/06/12 16:43:03 by argonthi         ###   ########.fr       */
+/*   Updated: 2019/09/19 00:38:10 by argonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FDF.h"
+#include "fdf.h"
 
 int main(int argc, char const *argv[])
 {

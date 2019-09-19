@@ -6,11 +6,11 @@
 /*   By: argonthi <argonthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 15:28:06 by argonthi          #+#    #+#             */
-/*   Updated: 2019/06/12 02:05:26 by argonthi         ###   ########.fr       */
+/*   Updated: 2019/09/19 00:38:53 by argonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FDF.h"
+#include "fdf.h"
 
 void draw_line(void* mlx_ptr, void* win_ptr, int x0, int y0, int x1, int y1)
 {

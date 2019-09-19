@@ -6,11 +6,11 @@
 /*   By: argonthi <argonthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/06 21:35:11 by argonthi          #+#    #+#             */
-/*   Updated: 2019/06/12 02:19:49 by argonthi         ###   ########.fr       */
+/*   Updated: 2019/09/19 00:38:42 by argonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FDF.h"
+#include "fdf.h"
 
  
 char* random_hex(void)
