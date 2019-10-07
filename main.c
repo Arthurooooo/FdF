@@ -6,7 +6,7 @@
 /*   By: argonthi <argonthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 18:43:19 by argonthi          #+#    #+#             */
-/*   Updated: 2019/10/04 02:29:37 by argonthi         ###   ########.fr       */
+/*   Updated: 2019/10/07 03:40:33 by argonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int argc, char const *argv[])
   int fd;
   int i;
   int temp_z;
-  int cnt_z;
+  int cnt_x;
   char	*line;
   int linenumber;
 
@@ -32,7 +32,7 @@ int main(int argc, char const *argv[])
   
   int loop = 900;
   temp_z = 0;
-  cnt_z = 0;
+  cnt_x = 0;
   i = 0;
   linenumber = 0;
 
@@ -44,28 +44,40 @@ int main(int argc, char const *argv[])
     return -1;
   }
   
-  fd = open((argv[1]), O_RDONLY); // protege ca
+  	if ((fd = open((argv[1]), O_RDONLY)) == -1)
+		    return -1;
   map_max_x = get_max_x(fd);
   map_max_y = get_max_y(fd);
+
+  	if ((fd = open((argv[1]), O_RDONLY)) == -1)
+		    return -1;
 
   if (!(ptr_tab = (t_point **)malloc(sizeof(t_point *) * (map_max_y))))
       return (-1);
 //printf("taille map: \n x: %i \n y: %i \n", get_max_x(fd), get_max_y(fd));
-  line = (char *)malloc(sizeof(char) * map_max_x); // CA NE READ QUE 3 CARACTERES
-	while (i < map_max_y + 1)
+  line = (char *)malloc(sizeof(char) * map_max_x);
+
+  if (!(*ptr_tab = (t_point *)malloc(sizeof(t_point) * (map_max_x))))
+    return (-1);
+
+	while ((i < map_max_y + 1) && (get_next_line(fd, &line)))
 	{
-      if (!(*ptr_tab = (t_point *)malloc(sizeof(t_point) * (map_max_x))))
-        return (-1);
-		get_next_line(fd, &line);
-    printf("line = %s \n", line);
+    //printf("%s\n", line);
+
 	  ptr_tab[linenumber] = parser(line, map_max_x);
-    while (ptr_tab[linenumber][cnt_z++].z)
+    //printf("%d", ptr_tab[linenumber][3].y);
+
+    cnt_x = 0;
+    while (cnt_x < map_max_x)
     {
-      ptr_tab[linenumber][cnt_z].z = temp_z;
-      //printf("x : %d\n", ptr_tab[linenumber][cnt_z].x);
-      cnt_z++;
+      ptr_tab[linenumber][cnt_x].y = linenumber;
+      printf("%d ", ptr_tab[linenumber][cnt_x].y);
+
+      cnt_x++;
     }
-    
+       //show_struct(ptr_tab);
+    printf("\n");
+
   	i++;
     linenumber++;
   }
@@ -129,5 +141,7 @@ linenumber++;
     }
     mlx_loop(mlx_ptr); 
     */
+       close(fd);
+
   return 0;
 }

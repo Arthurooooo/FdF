@@ -17,13 +17,12 @@ int get_max_x(const int fd)
         if (ft_isnumber(tab[i]))
         {
             x++;
-
         }
        i++;
     }
 
+
     return x;
-    close(fd);
 }
 
 
@@ -40,6 +39,6 @@ int get_max_y(const int fd)
 
     }
 
-    return y;
     close(fd);
+    return y;
 }
