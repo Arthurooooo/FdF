@@ -6,7 +6,7 @@
 /*   By: argonthi <argonthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 18:43:19 by argonthi          #+#    #+#             */
-/*   Updated: 2019/10/07 03:40:33 by argonthi         ###   ########.fr       */
+/*   Updated: 2019/10/08 22:21:48 by argonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,12 @@ int main(int argc, char const *argv[])
     while (cnt_x < map_max_x)
     {
       ptr_tab[linenumber][cnt_x].y = linenumber;
-      printf("%d ", ptr_tab[linenumber][cnt_x].y);
+     // printf("%d ", ptr_tab[linenumber][cnt_x].y);
 
       cnt_x++;
     }
        //show_struct(ptr_tab);
-    printf("\n");
+    //printf("\n");
 
   	i++;
     linenumber++;
@@ -85,7 +85,7 @@ int main(int argc, char const *argv[])
 int cnt;
 cnt = 1;
 linenumber = 0;
-while (linenumber < map_max_y)
+/*while (linenumber < map_max_y)
 {
  // printf("\n%d\n", linenumber);
  // printf("x : %d y : %d z : %d  ||", ptr_tab[linenumber][cnt].x, ptr_tab[linenumber][cnt].y, ptr_tab[linenumber][cnt].z);
@@ -95,52 +95,21 @@ while (linenumber < map_max_y)
   //printf("  x : %i y : %i z : %i\n", ptr_tab[0][cnt].x, ptr_tab[0][cnt].y, ptr_tab[linenumber][cnt].z);
 linenumber++;
 //cnt = 0;
-}
-
+}*/
 
 
   int nbr = 0;
 // printf("x: %i \n y: %i \n z: %i \n", ptr_tab[nbr].x, ptr_tab[nbr].y, ptr_tab[nbr].z);
 
  // printf("ptr_tab[i].z = %c \n", ptr_tab[18].z);
-
-   /* if(argc != 3)
-    {
-        printf("not enough arguments!");
-        return 0;
-    }*/
-
-   /* x = atoi(argv[1]);
-    y = atoi(argv[2]);*/
-    /*
+    
     mlx_ptr = mlx_init();
-    win_ptr = mlx_new_window(mlx_ptr, 1000, 1000, "mlx 42");
-    while(loop != 0){
-    draw_line(mlx_ptr, win_ptr, x0, y0, x1, y1);
+    win_ptr = mlx_new_window(mlx_ptr, 200, 200, "mlx 42");
 
-    int x3 = 990;
-    int y3 = 990;
-    int x4 = 1000;
-    int y4 = 50;
+    draw_map(mlx_ptr, win_ptr, ptr_tab, map_max_x, map_max_y);
 
-    draw_line(mlx_ptr, win_ptr, x3, y3, x4, y4);
-    y4++;
-    x4--;*/
-
-   // x1++;
-   /*
-   if(y < 1000)
-   {
-    y1++;
-   }
-   else
-   {
-        x1--;
-   }
-    loop--;
-    }
     mlx_loop(mlx_ptr); 
-    */
+    
        close(fd);
 
   return 0;

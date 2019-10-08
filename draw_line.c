@@ -6,7 +6,7 @@
 /*   By: argonthi <argonthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 15:28:06 by argonthi          #+#    #+#             */
-/*   Updated: 2019/10/03 19:50:18 by argonthi         ###   ########.fr       */
+/*   Updated: 2019/10/08 22:17:53 by argonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void draw_line(void* mlx_ptr, void* win_ptr, int x0, int y0, int x1, int y1)
   }
   nombre_aleatoire = strtol(charandom, NULL, 16);
   while(x0!=x1 || y0!=y1){
-    mlx_pixel_put(mlx_ptr, win_ptr, x0, y0, nombre_aleatoire);
-   // printf("%s", charandom);
+    mlx_pixel_put(mlx_ptr, win_ptr, x0, y0, BLUE);
+    printf("x = %i y = %i \n", x0, y0);
    // printf("\n");
     e2 = err;
     if (e2 >-dx) { err -= dy; if(x0 != x1){x0 += sx; }}
