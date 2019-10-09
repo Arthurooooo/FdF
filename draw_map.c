@@ -8,16 +8,15 @@ int     draw_map(void* mlx_ptr, void* win_ptr, t_point ** map, int map_max_x, in
     int linenumber;
     int coeff;
 
-    real_y = 250 - (map_max_y / 2);
-    real_x = 250 - (map_max_x / 2);
-    coeff = 1;
+    real_y = 125 - (map_max_y / 2);
+    real_x = 125 - (map_max_x / 2);
+    coeff = 6;
     pnt_x = 0;
     linenumber = 0;
     while((pnt_x < map_max_x) && (linenumber <= map_max_y))
     {
         printf("ici\n");
 
-        pnt_x = 0;
         while(pnt_x < map_max_x)
         {
 
@@ -45,23 +44,27 @@ int     draw_map(void* mlx_ptr, void* win_ptr, t_point ** map, int map_max_x, in
             pnt_x++;
             if (real_x == 0)
             {
-                real_x = real_x + coeff;
+                real_x = pnt_x + coeff;
             }
             else
             {
-                real_x = real_x * coeff;
+                real_x = pnt_x * coeff;
             }
         }
+        if (linenumber < map_max_y)
+        {
+            pnt_x = 0;
+            real_x = 125 - (map_max_x / 2);
+        } //retourne au debut 
+        
         if (linenumber == 0)
         {
-            real_y = real_y + coeff;
+            real_y = linenumber + coeff;
         }
         else
         {
-            real_y = real_y * coeff;
+            real_y = linenumber * coeff;
         }
-        
-        
         linenumber++;
     }
     return 0;
