@@ -6,7 +6,7 @@
 /*   By: argonthi <argonthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 20:07:08 by argonthi          #+#    #+#             */
-/*   Updated: 2019/10/07 00:21:27 by argonthi         ###   ########.fr       */
+/*   Updated: 2019/10/08 20:31:32 by argonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_point
 }   t_point;
 
 void    draw_line(void* mlx_ptr, void* win_ptr, int x0, int y0, int x1, int y1);
+int     draw_map(void* mlx_ptr, void* win_ptr, t_point ** map, int map_max_x, int map_max_y);
 char*     random_hex(void);
 t_point * parser(char *str, int map_width);
 int get_max_x(const int fd);

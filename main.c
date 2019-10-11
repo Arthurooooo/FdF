@@ -6,7 +6,7 @@
 /*   By: argonthi <argonthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 18:43:19 by argonthi          #+#    #+#             */
-/*   Updated: 2019/10/09 16:39:26 by argonthi         ###   ########.fr       */
+/*   Updated: 2019/10/11 02:36:14 by argonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ linenumber++;
  // printf("ptr_tab[i].z = %c \n", ptr_tab[18].z);
     
     mlx_ptr = mlx_init();
-    win_ptr = mlx_new_window(mlx_ptr, 250, 250, "mlx 42");
+    win_ptr = mlx_new_window(mlx_ptr, 500, 500, "mlx 42");
 
     draw_map(mlx_ptr, win_ptr, ptr_tab, map_max_x, map_max_y);
 

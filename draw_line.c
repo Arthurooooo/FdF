@@ -6,7 +6,7 @@
 /*   By: argonthi <argonthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 15:28:06 by argonthi          #+#    #+#             */
-/*   Updated: 2019/10/09 03:17:19 by argonthi         ###   ########.fr       */
+/*   Updated: 2019/10/11 02:37:45 by argonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void draw_line(void* mlx_ptr, void* win_ptr, int x0, int y0, int x1, int y1)
 
    int nombre_aleatoire;
   char prefix[2] = "0x";
-  /* char *charandom;
+   char *charandom;
   if(!(charandom = (char *)malloc(8)))
   {
     return ;
@@ -34,9 +34,9 @@ void draw_line(void* mlx_ptr, void* win_ptr, int x0, int y0, int x1, int y1)
 
   }
   nombre_aleatoire = strtol(charandom, NULL, 16);
-  */
+  
   while(x0!=x1 || y0!=y1){
-    mlx_pixel_put(mlx_ptr, win_ptr, x0, y0, PINK);
+    mlx_pixel_put(mlx_ptr, win_ptr, x0, y0, nombre_aleatoire);
    // printf("\n");
     e2 = err;
     if (e2 >-dx) { err -= dy; if(x0 != x1){x0 += sx; }}

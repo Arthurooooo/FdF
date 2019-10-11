@@ -7,65 +7,72 @@ int     draw_map(void* mlx_ptr, void* win_ptr, t_point ** map, int map_max_x, in
     int real_y;
     int linenumber;
     int coeff;
+    int real_min_x;
+    int real_min_y;
+    int real_max_x;
+    int real_max_y;
+    int tab_x;
+    int tab_y;
+    int window_size_xy;
+    int VALEUR;
 
-    real_y = 125 - (map_max_y / 2);
-    real_x = 125 - (map_max_x / 2);
-    coeff = 6;
+    window_size_xy = 500;
+    coeff = 20;
+
+    real_y = (window_size_xy / 2) - ((map_max_y * coeff) / 2);
+    real_x = (window_size_xy / 2) - ((map_max_x * coeff) / 2);
+    real_max_y = window_size_xy - real_y;
+    real_max_x = window_size_xy - real_x;
+    real_min_x = real_x;
+    real_min_y = real_y;
+    tab_x = real_max_x - real_min_x;
+    tab_y = real_max_y - real_min_y;
+
     pnt_x = 0;
     linenumber = 0;
-    while((pnt_x < map_max_x) && (linenumber <= map_max_y))
+    while((pnt_x <= map_max_x) && (linenumber <= map_max_y) && (real_y <= real_max_y))
     {
         printf("ici\n");
 
-        while(pnt_x < map_max_x)
+        while((pnt_x <= map_max_x) && (real_x <= real_max_x))
         {
-
-            if (linenumber != 0) //tant qu'on est pas a la derniere ligne
+            if (linenumber < map_max_y)
             {
-                draw_line(mlx_ptr, win_ptr, real_x, real_y, real_x, (real_y * coeff));
+                if (linenumber == 0)
+                {
+                    draw_line(mlx_ptr, win_ptr, real_x, real_y, real_x, (real_y + (tab_y / map_max_y))); // verticaux
+                    VALEUR = (real_y + ((real_max_y - real_min_y) / map_max_y));
+                }
+                else
+                {
+                    draw_line(mlx_ptr, win_ptr, real_x, real_y, real_x, (real_y + (tab_y / map_max_y)));
+                    VALEUR = (real_y + ((real_max_y - real_min_y) / map_max_y) * linenumber);
+                }
             }
-            else if(linenumber == 0)
-            {
-                draw_line(mlx_ptr, win_ptr, real_x, real_y, real_x, (real_y + coeff));
-            }
-
-
-            if (pnt_x != 0) //dessine les points horizontaux
-            {          
-                draw_line(mlx_ptr, win_ptr, real_x, real_y, (real_x * coeff), real_y);
-            }
-            else
-            {
-
-                draw_line(mlx_ptr, win_ptr, real_x, real_y, (real_x + coeff), real_y);
-            }
-            
+            if (pnt_x < map_max_x)
+            {     
+                if (pnt_x == 0)
+                {
+                    draw_line(mlx_ptr, win_ptr, real_x, real_y, (real_x + (tab_x / map_max_x)), real_y); //horizontaux
+                    VALEUR = (real_x + ((real_max_x - real_min_x) / map_max_x));
+                }
+                else
+                {
+                    draw_line(mlx_ptr, win_ptr, real_x, real_y, (real_x + (tab_x / map_max_x)), real_y);
+                    VALEUR = (real_x + ((real_max_x - real_min_x) / map_max_x) * pnt_x);
+                }
+            }         
             printf("1 ligne tracee \n");
             pnt_x++;
-            if (real_x == 0)
-            {
-                real_x = pnt_x + coeff;
-            }
-            else
-            {
-                real_x = pnt_x * coeff;
-            }
+            real_x = real_x + (tab_x / map_max_x);
         }
-        if (linenumber < map_max_y)
-        {
+            linenumber++;
             pnt_x = 0;
-            real_x = 125 - (map_max_x / 2);
-        } //retourne au debut 
+            real_x = (window_size_xy / 2) - tab_x / 2;
+         //retourne au debut 
         
-        if (linenumber == 0)
-        {
-            real_y = linenumber + coeff;
-        }
-        else
-        {
-            real_y = linenumber * coeff;
-        }
-        linenumber++;
+            real_y = real_y + (tab_y / map_max_y);
+
     }
     return 0;
 }
