@@ -6,7 +6,7 @@
 /*   By: argonthi <argonthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/06 21:35:11 by argonthi          #+#    #+#             */
-/*   Updated: 2019/10/03 19:50:13 by argonthi         ###   ########.fr       */
+/*   Updated: 2019/10/11 16:48:58 by argonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ char* random_hex(void)
         length = 6;
 
     while(length--) {
-        hex = str[rand() % 16];
+
+        hex = str[1 + rand() % 16];
         fullhex[i] = hex;
         i++;
         srand(rand());
