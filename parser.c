@@ -1,34 +1,58 @@
 #include "fdf.h"
 
-t_point * parser(char *str, int map_width)
+t_map * parser(t_env *env, t_map *map, char *av)
 {
-    int i;
-    int largeur;
-    int longueur;
+    int ptr_x;
     char ** tab;
-    t_point *ptr_struct_tab;
+    char *line;
+    int linenumber;
+    int fd;
 
-    largeur = 0;
-    longueur = 0;
-    i = 0;
+    linenumber = 0;
+    ptr_x = 0;
+    map->map_max_x = get_max_x(av);
+    map->map_max_y = get_max_y(av);
 
-    if (!(ptr_struct_tab = (t_point *)malloc(sizeof(t_point) * map_width)))
-        return NULL ;
-    tab = ft_strsplit(str, ' ');
-    int y;
-    y = 0;
+        if (!(map->ptr_tab = (t_point **)malloc(sizeof(t_point *) * (map->map_max_y))))
+            return NULL;
 
-    while(i < map_width)
-    {
+    if (!(fd = open(av, O_RDONLY)))
+        return NULL;
 
-        if (ft_isnumber(tab[i]))
+	while (get_next_line(fd, &line) == 1)
+	{
+        
+        tab = ft_strsplit(line, ' ');
+        /*
+        if(!map->map_max_x)
+            map->map_max_x = ft_tablen(tab);
+            
+        if (!(map->ptr_tab = (t_point **)malloc(sizeof(t_point *) * (map->map_max_y))))
+            return NULL;
+    */
+        if (!(map->ptr_tab[linenumber] = (t_point *)malloc(sizeof(t_point) * (map->map_max_x))))
+            return NULL;
+        else
         {
-            ptr_struct_tab[i].z = ft_atoi(tab[i]);
-            ptr_struct_tab[i].x = i;
+            printf("BIEN MALLOC");
         }
-
-       i++;
+            
+        while (ptr_x < map->map_max_x)
+        {
+            map->ptr_tab[linenumber][ptr_x].y = linenumber;
+            // printf("%d ", ptr_tab[0][linenumber][cnt_x].y);
+            if (ft_isnumber(tab[ptr_x]))
+            {
+                map->ptr_tab[linenumber][ptr_x].z = ft_atoi(tab[ptr_x]);
+                map->ptr_tab[linenumber][ptr_x].x = ptr_x;
+            }
+            ptr_x++;
+        }
+        ptr_x = 0;
+        //show_struct(ptr_tab[0]);
+        //printf("\n");
+        linenumber++;
     }
-    return ptr_struct_tab;
+    return map;
 }
 

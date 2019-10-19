@@ -1,44 +1,43 @@
 #include "fdf.h"
 
-int get_max_x(const int fd)
+int get_max_x(char *filename)
 {
     int x;
-    int i;
+    int fd;
     char *line;
     char **tab;
     x = 0;
-    i = 0;
+
+    if (!(fd = open(filename, O_RDONLY)))
+        return (-1);
 
     get_next_line(fd, &line);
     tab = ft_strsplit(line, ' ');
-
-    while(tab[i])
+    while(tab[x] && ft_isnumber(tab[x]))
     {
-        if (ft_isnumber(tab[i]))
-        {
-            x++;
-        }
-       i++;
+        x++;
     }
 
-
+    close(fd);
     return x;
 }
 
 
-int get_max_y(const int fd)
+int get_max_y(char *filename)
 {
     int y;
+    int fd;
     char fullstring[1];
-    y = 1;
 
+    y = 1;
+    if (!(fd = open(filename, O_RDONLY)))
+        return (-1);
     while ((read(fd, fullstring, 1)) != 0)
     {
         if (*fullstring == '\n')
             y++;
 
     }
-
     close(fd);
-    return y;
+    return (y - 1);
 }

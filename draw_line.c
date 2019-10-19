@@ -6,7 +6,7 @@
 /*   By: argonthi <argonthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 15:28:06 by argonthi          #+#    #+#             */
-/*   Updated: 2019/10/17 21:57:41 by argonthi         ###   ########.fr       */
+/*   Updated: 2019/10/19 04:02:41 by argonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void draw_line(t_env *env, t_image *img, t_point src, t_point dest)
 {
 
-  int dx = abs(dest.x-src.x), sx = src.x<dest.x ? 1 : -1;
-  int dy = abs(dest.y-src.y), sy = src.y<dest.y ? 1 : -1; 
+  int dx = fabs(dest.x-src.x), sx = src.x<dest.x ? 1 : -1;
+  int dy = fabs(dest.y-src.y), sy = src.y<dest.y ? 1 : -1; 
   int err = (dx>dy ? dx : -dy)/2, e2;
 
    int nombre_aleatoire;
@@ -35,8 +35,8 @@ void draw_line(t_env *env, t_image *img, t_point src, t_point dest)
   }
   nombre_aleatoire = strtol(charandom, NULL, 16);
   
-  while(src.x!=dest.x || src.y!=dest.y){
-        pixel_to_image(env, img, src.x, src.y, PINK);
+  while((int)src.x!=(int)dest.x || (int)src.y!=(int)dest.y){
+        pixel_to_image(img, src.x, src.y, PINK);
    // printf("\n");
     e2 = err;
     if (e2 >-dx) { err -= dy; if(src.x != dest.x){src.x += sx; }}

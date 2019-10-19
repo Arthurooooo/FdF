@@ -1,14 +1,12 @@
 #include "fdf.h"
 
-int		key_hook(int keycode, t_point **ptr_tab, void *env)
+int		key_hook(int keycode, t_map *map, t_env *env)
 {
 	int		scale;
-	t_env	*cast_env;
 
-	cast_env = (t_env *)env;
 	scale = 20;
-	mlx_clear_window(cast_env->mlx_ptr, cast_env->win_ptr);
-	print_strings_to_window(*cast_env);
+	mlx_clear_window(env->mlx_ptr, env->win_ptr);
+	print_strings_to_window(*env);
 	//if (keycode == 53)
 	//	close_win(cast_env);
 	/* if (keycode == 0 || keycode == 1 || keycode == 2
@@ -16,9 +14,9 @@ int		key_hook(int keycode, t_point **ptr_tab, void *env)
 		handle_moves(cast_env, keycode);
 	*/
 	if (keycode == 86 || keycode == 91 || keycode == 88)
-		handle_rots(cast_env, ptr_tab, keycode);
+		handle_rots(map, keycode);
 	if (keycode == 69 || keycode == 78)
-		handle_zoom(cast_env, keycode, ptr_tab);
+		handle_zoom(env, map, keycode);
 	//draw_map(*cast_env, );
 	return (0);
 }
