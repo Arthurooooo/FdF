@@ -6,7 +6,7 @@
 /*   By: argonthi <argonthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 18:43:19 by argonthi          #+#    #+#             */
-/*   Updated: 2019/10/21 02:59:44 by argonthi         ###   ########.fr       */
+/*   Updated: 2019/10/27 14:44:04 by argonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		main(int argc, char **argv)
 	cnt_zoom = 0;
 	if (argc != 2)
 	{
-		write(1, "not enough arguments\n", 21);
+		write(1, "please input only 1 argument\n", 29);
 		return (-1);
 	}
 	parser(&env, argv[1]);
@@ -37,6 +37,7 @@ int		main(int argc, char **argv)
 	refresh_image(&env);
 	print_strings_to_window(env);
 	mlx_hook(env.win_ptr, 2, 0, key_hook, (void *)&env);
+	mlx_hook(env.win_ptr, 17, (1L << 17), quit_all, (void *)&env);
 	mlx_loop(env.mlx_ptr);
 	return (0);
 }

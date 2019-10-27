@@ -6,7 +6,7 @@
 #    By: argonthi <argonthi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/21 04:41:46 by argonthi          #+#    #+#              #
-#    Updated: 2019/10/21 05:29:38 by argonthi         ###   ########.fr        #
+#    Updated: 2019/10/23 12:10:22 by argonthi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,16 +14,17 @@ NAME = fdf
 
 SRC_PATH		= 	srcs
 
-SRC_NAME		=	draw_line.c 	\
+SRC_NAME		=	draw_line.c 		\
 					find_map_size.c		\
 					handle_events.c		\
 					parser.c			\
 					draw_map.c			\
-					rotations.c				\
+					rotations.c			\
 					zoom.c				\
-					handle_moves.c				\
+					handle_moves.c		\
 					images.c			\
-					main.c 
+					main.c 				\
+					quit_all.c
 
 OBJ_PATH = objs
 OBJ_NAME = $(SRC_NAME:.c=.o)

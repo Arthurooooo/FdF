@@ -6,7 +6,7 @@
 /*   By: argonthi <argonthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 20:07:08 by argonthi          #+#    #+#             */
-/*   Updated: 2019/10/21 05:46:28 by argonthi         ###   ########.fr       */
+/*   Updated: 2019/10/23 14:46:53 by argonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@
 
 typedef	struct			s_point
 {
-	double		x;
-	double		y;
-	double		z;
+	long	double		x;
+	long	double		y;
+	long	double		z;
 }						t_point;
 
 typedef struct			s_image
@@ -104,6 +104,8 @@ void					show_struct(t_point **ptr_tab);
 t_point					*tab_to_line(t_point **tab, int max_y, int max_x);
 char					**free_all(char **tab, char **line);
 int						isvalid(char **tab, char **line);
+int						issquared(t_env *env, char **tab, char **line);
+
 
 void					pixel_to_image(t_image *img, int x, int y, int color);
 void					new_image(t_env *env);
@@ -113,4 +115,6 @@ int						refresh_image(t_env *env);
 void					print_strings_to_window(t_env env);
 int						key_hook(int keycode, void *env_temp);
 int						close_win(void *param);
+int						quit_all(t_env *env);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: argonthi <argonthi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 23:40:40 by argonthi          #+#    #+#             */
-/*   Updated: 2019/10/21 04:59:45 by argonthi         ###   ########.fr       */
+/*   Updated: 2019/10/27 10:58:29 by argonthi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		get_max_x(char *filename)
 		exit(-1);
 	}
 	tab = ft_strsplit(line, ' ');
-	isvalid(tab, &line);
+	//isvalid(tab, &line);
 	while (tab[x] && ft_isnumber(tab[x]))
 	{
 		x++;
