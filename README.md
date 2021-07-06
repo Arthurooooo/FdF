@@ -21,3 +21,6 @@ FdF (Fil de Fer) is a project of school 42's cursus (graphic branch) which goal 
 2. Open your terminal and navigate to the project's directory
 3. enter ```make macbook``` if you're using a MacBook or ```make iMac``` if you're using an iMac.
 4. ```./fdf [path to a compatible map]``` (you'll find compatible maps in the tests_maps folder)
+
+
+![Screenshot 2021-07-06 at 16 49 16](https://user-images.githubusercontent.com/31555164/124620950-2b5fb100-de7a-11eb-8b2c-7000cda180e9.png)
